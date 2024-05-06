@@ -14,4 +14,8 @@ public class Randomizer {
     public static String getRandomName() {
         return names[random.nextInt(names.length)];
     }
+
+    public static int getRandomAge() {
+        return random.nextInt(60);
+    }
 }
