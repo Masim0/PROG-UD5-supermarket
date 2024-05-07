@@ -9,7 +9,12 @@ public class Main {
         client1.showBasket();
 
         Cashier cashier1 = new Cashier();
-        cashier1.serveClient(client1);
+        cashier1.addToQueue(client1);
+        cashier1.addToQueue(new Client());
+        cashier1.addToQueue(new Client());
+        cashier1.serveNextClient();
+        cashier1.serveNextClient();
+        cashier1.serveNextClient();
 
         System.out.println("Clients served by " + cashier1.getName() + ": " + cashier1.getClientsServed());
     }

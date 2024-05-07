@@ -1,18 +1,21 @@
 package com.salesianos.supermarket.models;
 
-import java.util.List;
-import java.util.ArrayList;
+import com.salesianos.supermarket.utils.Randomizer;
+
+import java.util.Stack;
 
 public class Client extends Person {
-    private List<String> shoppingBasket;
+    private final Stack<String> shoppingBasket;
+    private final String name;
 
     public Client() {
         super();
-        this.shoppingBasket = new ArrayList<>();
+        this.name = Randomizer.getRandomName();
+        this.shoppingBasket = new Stack<>();
     }
 
     public void addToBasket(String product) {
-        shoppingBasket.add(product);
+        shoppingBasket.push(product);
     }
 
     public void showBasket() {
@@ -21,4 +24,24 @@ public class Client extends Person {
             System.out.println("- " + product);
         }
     }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Cliente\n");
+        sb.append("===================================\n");
+        sb.append("* Name: ").append(name).append("\n");
+        sb.append("* Total products: ").append(shoppingBasket.size()).append("\n");
+        sb.append("* Items in the basket:\n");
+        for (String product : shoppingBasket) {
+            sb.append(product).append("\n");
+        }
+        sb.append("===================================\n");
+        return sb.toString();
+    }
+
 }
