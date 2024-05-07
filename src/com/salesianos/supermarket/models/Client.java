@@ -6,23 +6,10 @@ import java.util.Stack;
 
 public class Client extends Person {
     private final Stack<String> shoppingBasket;
-    private final String name;
 
     public Client() {
         super();
-        this.name = Randomizer.getRandomName();
-        this.shoppingBasket = new Stack<>();
-    }
-
-    public void addToBasket(String product) {
-        shoppingBasket.push(product);
-    }
-
-    public void showBasket() {
-        System.out.println("Shopping basket of " + name + ":");
-        for (String product : shoppingBasket) {
-            System.out.println("- " + product);
-        }
+        this.shoppingBasket = Randomizer.generateRandomBasket();
     }
 
     public String getName() {
