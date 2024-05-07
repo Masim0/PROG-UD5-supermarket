@@ -8,22 +8,19 @@ import java.util.Queue;
 public class Cashier extends Person {
     private final String id;
     private final Queue<Client> clientQueue;
-    private int clientsServed;
 
     public Cashier() {
         super();
         this.id = Randomizer.generateRandomUUID();
         this.clientQueue = new LinkedList<>();
-        this.clientsServed = 0;
     }
 
     public void serveNextClient() {
         if (!clientQueue.isEmpty()) {
             Client nextClient = clientQueue.poll();
-            System.out.println("Cashier " + name + " " + id + " serving client " + nextClient.getName());
-            clientsServed++;
+            System.out.println("Cajer@ " + name + " " + id + " atendiendo a " + nextClient.getName());
         } else {
-            System.out.println("Cashier " + name + " " + id + " has no clients to serve.");
+            System.out.println("Cajer@ " + name + " " + id + " no tiene clientes en la cola");
         }
     }
 
@@ -31,12 +28,8 @@ public class Cashier extends Person {
         clientQueue.offer(client);
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getClientsServed() {
-        return clientsServed;
+    public Queue<Client> getClientQueue() {
+        return clientQueue;
     }
 
     @Override

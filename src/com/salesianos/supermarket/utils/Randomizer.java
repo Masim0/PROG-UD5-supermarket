@@ -1,6 +1,7 @@
 package com.salesianos.supermarket.utils;
 
 import java.util.Random;
+import java.util.Stack;
 import java.util.UUID;
 
 public class Randomizer {
@@ -8,8 +9,17 @@ public class Randomizer {
     private static final String[] names = {"Juan", "María", "Pedro", "Ana", "Luis", "Carla", "Roberto", "Laura", "Sofía", "Javier", "Elena", "Diego", "Lucía", "Carlos", "Patricia", "Andrés", "Marta", "Ricardo", "Valentina", "Gabriel"};
     private static final Random random = new Random();
 
-    public static String getRandomProduct() {
-        return products[random.nextInt(products.length)];
+    private static String getRandomProduct() {
+         return products[random.nextInt(products.length)];
+    }
+
+    public static Stack<String> generateRandomBasket() {
+        int basketSize = random.nextInt(11) + 1;
+        Stack<String> products = new Stack<>();
+        for (int i = 0; i < basketSize; i++) {
+            products.push(getRandomProduct());
+        }
+        return products;
     }
 
     public static String getRandomName() {
