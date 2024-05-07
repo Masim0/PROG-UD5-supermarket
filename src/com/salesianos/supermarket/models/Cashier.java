@@ -18,9 +18,9 @@ public class Cashier extends Person {
     public void serveNextClient() {
         if (!clientQueue.isEmpty()) {
             Client nextClient = clientQueue.poll();
-            System.out.println("Cashier " + name + " " + id + " serving client " + nextClient.getName());
+            System.out.println("Cajer@ " + name + " " + id + " atendiendo a " + nextClient.getName());
         } else {
-            System.out.println("Cashier " + name + " " + id + " has no clients to serve.");
+            System.out.println("Cajer@ " + name + " " + id + " no tiene clientes en la cola");
         }
     }
 

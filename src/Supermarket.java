@@ -36,7 +36,7 @@ public class Supermarket {
                         Client newCustomer = new Client();
                         cashier.addToQueue(newCustomer);
                         System.out.println("Nuevo cliente añadido a la cola:");
-                        System.out.println(newCustomer.toString());
+                        System.out.println(newCustomer);
                     } else {
                         System.out.println("La caja está cerrada.");
                     }
@@ -50,7 +50,7 @@ public class Supermarket {
                     break;
                 case 4:
                     System.out.println("Clientes pendientes:");
-                    System.out.println(cashier.toString());
+                    System.out.println(cashier);
                     break;
                 case 5:
                     if (!cashier.getClientQueue().isEmpty()) {
