@@ -1,11 +1,21 @@
-import com.salesianos.supermarket.utils.Randomizer;
+import com.salesianos.supermarket.models.Cashier;
+import com.salesianos.supermarket.models.Client;
 
 public class Main {
     public static void main(String[] args) {
-        String name = Randomizer.getRandomName();
-        String product = Randomizer.getRandomProduct();
+        Client client1 = new Client();
+        client1.addToBasket("Apples");
+        client1.addToBasket("Milk");
+        client1.showBasket();
 
-        System.out.println(name);
-        System.out.println(product);
+        Cashier cashier1 = new Cashier();
+        cashier1.addToQueue(client1);
+        cashier1.addToQueue(new Client());
+        cashier1.addToQueue(new Client());
+        cashier1.serveNextClient();
+        cashier1.serveNextClient();
+        cashier1.serveNextClient();
+
+        System.out.println("Clients served by " + cashier1.getName() + ": " + cashier1.getClientsServed());
     }
 }

@@ -1,6 +1,7 @@
 package com.salesianos.supermarket.utils;
 
 import java.util.Random;
+import java.util.UUID;
 
 public class Randomizer {
     private static final String[] products = {"Manzana", "Harina", "Velas", "Libro", "Cafetera", "Camisa", "Televisor", "Zapatos", "Perfume", "Mesa", "Gafas", "Reloj"};
@@ -13,5 +14,13 @@ public class Randomizer {
 
     public static String getRandomName() {
         return names[random.nextInt(names.length)];
+    }
+
+    public static int getRandomAge() {
+        return random.nextInt(60);
+    }
+
+    public static String generateRandomUUID() {
+        return UUID.randomUUID().toString();
     }
 }
